@@ -1,0 +1,12 @@
+{
+  "name": "clientkit-styleguide-example",
+  "private": true,
+  "scripts": {
+    "start": "clientkit styleguide"
+  },
+  "dependencies": {
+    "clientkit": "^2.1.1",
+    "serve": "^6.0.6",
+    "taskkit-shell": "^2.0.0"
+  }
+}

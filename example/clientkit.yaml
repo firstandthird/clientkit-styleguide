@@ -1,0 +1,24 @@
+tasks:
+  default:
+    -
+      - stylesheets
+      - styleguide
+  styleguide: '{{CWD}}/../index.js'
+  serve: 'taskkit-shell'
+  dev:
+    - serve
+    - watcher
+stylesheets:
+  files:
+    'out.css': 'common.css'
+styleguide:
+  output: 'styleguide.html'
+  css:
+    - 'dist/out.css'
+watcher:
+  files:
+    '{{CWD}}/../template.njk': 'styleguide'
+    '{{CWD}}/clientkit.yaml': 'reloadConfig'
+serve:
+  command: './node_modules/.bin/serve -p 8080'
+  continue: true

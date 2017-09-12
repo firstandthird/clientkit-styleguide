@@ -1,0 +1,72 @@
+{% if options.css %}
+  {% for cssFile in options.css %}
+  <link rel="stylesheet" href="{{ cssFile }}"/>
+  {% endfor %}
+{% endif %}
+<div class="margin-top-md">
+  <div id="colors" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Colors</div>
+    <div class="flex-row flex-row-wrap">
+    {% for name, color in colors %}
+      <div class="flex-3">
+        <div style="width: 100%; background-color: {{color}}" class="padding-yaxis-md margin-right-sm border-all text-color-light text-center margin-bottom-sm">
+          <strong>{{ name }}</strong> <br/>{{ color }}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  <div id="fonts" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Fonts</div>
+    <h1 class="heading-1">Heading 1</h1>
+    <h2 class="heading-2">Heading 2</h2>
+    <h3 class="heading-3">Heading 3</h3>
+    <h4 class="heading-4">Heading 4</h4>
+    <h5 class="heading-5">Heading 5</h5>
+    <h6 class="heading-6">Heading 6</h6>
+    <p class="font-large">Large Font</p>
+    <p>Body Font</p>
+    <p class="font-small">Small Font</p>
+  </div>
+  <div id="buttons" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Buttons</div>
+    <button class="button">Primary Button</button>
+    <button class="button-outline">Secondary Button</button>
+  </div>
+  <div id="links" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Links</div>
+    <a href="">Primary Link</a>
+  </div>
+  <div id="breakpoints" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Breakpoints</div>
+    <pre>
+      {% for key, value in breakpoints %}
+{{key}}: {{value}}
+      {% endfor %}
+    </pre>
+  </div>
+  <div id="spacing" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Spacing</div>
+    <pre>
+      {% for key, value in spacing %}
+{{key}}: {{value}}
+      {% endfor %}
+    </pre>
+  </div>
+  <div id="grid" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Grid</div>
+    <pre>
+      {% for key, value in grid %}
+{{key}}: {{value}}
+      {% endfor %}
+    </pre>
+  </div>
+  <div id="variables" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Variables</div>
+    <pre>
+      {% for key, value in variables %}
+{{key}}: {{value}}
+      {% endfor %}
+    </pre>
+  </div>
+</div>
