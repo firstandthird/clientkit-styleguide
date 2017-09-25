@@ -56,7 +56,8 @@ class ClientkitStyleguideTask extends TaskKitTask {
             breakpoints,
             spacing,
             colors: styleguide.color,
-            grid
+            grid,
+            configString: JSON.stringify(this.kit.config, null, '  ')
           }));
         } catch (e) {
           return done(e);

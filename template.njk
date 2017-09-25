@@ -3,6 +3,8 @@
   <link rel="stylesheet" href="{{ cssFile }}"/>
   {% endfor %}
 {% endif %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism.min.css">
+
 <div class="margin-top-md">
   <div id="colors" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Colors</div>
@@ -39,34 +41,43 @@
   </div>
   <div id="breakpoints" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Breakpoints</div>
-    <pre>
+    <pre><code class="language-yaml">
       {% for key, value in breakpoints %}
 {{key}}: {{value}}
       {% endfor %}
-    </pre>
+    </code></pre>
   </div>
   <div id="spacing" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Spacing</div>
-    <pre>
+    <pre><code class="language-yaml">
       {% for key, value in spacing %}
 {{key}}: {{value}}
       {% endfor %}
-    </pre>
+    </code></pre>
   </div>
   <div id="grid" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Grid</div>
-    <pre>
+    <pre><code class="language-yaml">
       {% for key, value in grid %}
 {{key}}: {{value}}
       {% endfor %}
-    </pre>
+    </code></pre>
   </div>
   <div id="variables" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Variables</div>
-    <pre>
+    <pre><code class="language-yaml">
       {% for key, value in variables %}
 {{key}}: {{value}}
       {% endfor %}
-    </pre>
+    </code></pre>
+  </div>
+  <div id="config" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Config</div>
+    <pre><code class="language-json">
+{{configString}}
+    </code></pre>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-yaml.min.js"></script>

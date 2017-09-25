@@ -3,6 +3,8 @@
   <link rel="stylesheet" href="dist/out.css"/>
   
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism.min.css">
+
 <div class="margin-top-md">
   <div id="colors" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Colors</div>
@@ -201,7 +203,7 @@
   </div>
   <div id="breakpoints" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Breakpoints</div>
-    <pre>
+    <pre><code class="language-yaml">
       
 desktop-wide-max-width: 100vw
       
@@ -241,11 +243,11 @@ mobile-col: sm
       
 mobile-default: false
       
-    </pre>
+    </code></pre>
   </div>
   <div id="spacing" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Spacing</div>
-    <pre>
+    <pre><code class="language-yaml">
       
 default-none: 0
       
@@ -259,21 +261,21 @@ default-sm: 20px
       
 default-xs: 10px
       
-    </pre>
+    </code></pre>
   </div>
   <div id="grid" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Grid</div>
-    <pre>
+    <pre><code class="language-yaml">
       
 columns: 12
       
 gutters: 15px
       
-    </pre>
+    </code></pre>
   </div>
   <div id="variables" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Variables</div>
-    <pre>
+    <pre><code class="language-yaml">
       
 font-primary: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, sans-serif;
       
@@ -383,6 +385,493 @@ easing-out: cubic-bezier(0.35, 0.97, 0.57, 0.99)
       
 easing-in-out: ease-in-out
       
-    </pre>
+    </code></pre>
+  </div>
+  <div id="config" class="container">
+    <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Config</div>
+    <pre><code class="language-json">
+{
+  &quot;tasks&quot;: {
+    &quot;analyze&quot;: &quot;taskkit-analyze&quot;,
+    &quot;clean&quot;: &quot;taskkit-clean&quot;,
+    &quot;eslint&quot;: &quot;taskkit-eslint&quot;,
+    &quot;hash&quot;: &quot;taskkit-hash&quot;,
+    &quot;scripts&quot;: &quot;taskkit-rollup&quot;,
+    &quot;styleguide&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/../index.js&quot;,
+    &quot;stylesheets&quot;: &quot;clientkit-css&quot;,
+    &quot;watcher&quot;: &quot;taskkit-watcher&quot;,
+    &quot;default&quot;: [
+      [
+        &quot;stylesheets&quot;,
+        &quot;styleguide&quot;
+      ]
+    ],
+    &quot;dev&quot;: [
+      &quot;serve&quot;,
+      &quot;watcher&quot;
+    ],
+    &quot;prod&quot;: [
+      &quot;default&quot;,
+      &quot;hash&quot;
+    ],
+    &quot;serve&quot;: &quot;taskkit-shell&quot;,
+    &quot;help&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/node_modules/taskkit/tasks/help&quot;,
+    &quot;config&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/node_modules/taskkit/tasks/config&quot;,
+    &quot;reloadConfig&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/node_modules/taskkit/tasks/reload-config&quot;
+  },
+  &quot;analyze&quot;: {
+    &quot;files&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist/*.+(js|css)&quot;
+  },
+  &quot;clean&quot;: {
+    &quot;files&quot;: {
+      &quot;all&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist&quot;
+    }
+  },
+  &quot;stylesheets&quot;: {
+    &quot;color&quot;: {
+      &quot;accent1&quot;: &quot;#336699&quot;,
+      &quot;accent2&quot;: &quot;orange&quot;,
+      &quot;body&quot;: &quot;#333&quot;,
+      &quot;heading&quot;: &quot;#333&quot;,
+      &quot;heading-light&quot;: &quot;#fff&quot;,
+      &quot;white&quot;: &quot;#fff&quot;,
+      &quot;background-default&quot;: &quot;#fff&quot;,
+      &quot;background-alt&quot;: &quot;rgb(95, 95, 95)&quot;,
+      &quot;link&quot;: &quot;#336699&quot;,
+      &quot;link-hover&quot;: &quot;color(#336699 blackness(+20%))&quot;,
+      &quot;input-background&quot;: &quot;#fff&quot;,
+      &quot;input-border&quot;: &quot;#333&quot;,
+      &quot;input-border-focus&quot;: &quot;#336699&quot;,
+      &quot;input-group-background&quot;: &quot;rgb(241,241,241)&quot;,
+      &quot;input-label&quot;: &quot;gray&quot;,
+      &quot;input-error&quot;: &quot;red&quot;,
+      &quot;input-disabled&quot;: &quot;gray&quot;,
+      &quot;button-primary-bg&quot;: &quot;#336699&quot;,
+      &quot;button-primary-color&quot;: &quot;#fff&quot;,
+      &quot;button-secondary-bg&quot;: &quot;orange&quot;,
+      &quot;button-secondary-color&quot;: &quot;#fff&quot;,
+      &quot;border&quot;: &quot;#ccc&quot;,
+      &quot;tooltip-bg&quot;: &quot;rgba(17,17,17,.9)&quot;,
+      &quot;icons&quot;: &quot;#333&quot;,
+      &quot;message-info&quot;: &quot;#f0f0f0&quot;,
+      &quot;message-success&quot;: &quot;#dff0d8&quot;,
+      &quot;message-error&quot;: &quot;#f2dede&quot;,
+      &quot;text-color-error&quot;: &quot;red&quot;
+    },
+    &quot;easing&quot;: {
+      &quot;linear&quot;: &quot;cubic-bezier(0.250, 0.250, 0.750, 0.750)&quot;,
+      &quot;ease&quot;: &quot;cubic-bezier(0.250, 0.100, 0.250, 1.000)&quot;,
+      &quot;ease-in&quot;: &quot;cubic-bezier(0.420, 0.000, 1.000, 1.000)&quot;,
+      &quot;ease-out&quot;: &quot;cubic-bezier(0.000, 0.000, 0.580, 1.000)&quot;,
+      &quot;ease-in-out&quot;: &quot;cubic-bezier(0.420, 0.000, 0.580, 1.000)&quot;,
+      &quot;ease-in-quad&quot;: &quot;cubic-bezier(0.550, 0.085, 0.680, 0.530)&quot;,
+      &quot;ease-in-cubic&quot;: &quot;cubic-bezier(0.550, 0.055, 0.675, 0.190)&quot;,
+      &quot;ease-in-quart&quot;: &quot;cubic-bezier(0.895, 0.030, 0.685, 0.220)&quot;,
+      &quot;ease-in-quint&quot;: &quot;cubic-bezier(0.755, 0.050, 0.855, 0.060)&quot;,
+      &quot;ease-in-sine&quot;: &quot;cubic-bezier(0.470, 0.000, 0.745, 0.715)&quot;,
+      &quot;ease-in-expo&quot;: &quot;cubic-bezier(0.950, 0.050, 0.795, 0.035)&quot;,
+      &quot;ease-in-circ&quot;: &quot;cubic-bezier(0.600, 0.040, 0.980, 0.335)&quot;,
+      &quot;ease-in-back&quot;: &quot;cubic-bezier(0.600, -0.280, 0.735, 0.045)&quot;,
+      &quot;ease-out-quad&quot;: &quot;cubic-bezier(0.250, 0.460, 0.450, 0.940)&quot;,
+      &quot;ease-out-cubic&quot;: &quot;cubic-bezier(0.215, 0.610, 0.355, 1.000)&quot;,
+      &quot;ease-out-quart&quot;: &quot;cubic-bezier(0.165, 0.840, 0.440, 1.000)&quot;,
+      &quot;ease-out-quint&quot;: &quot;cubic-bezier(0.230, 1.000, 0.320, 1.000)&quot;,
+      &quot;ease-out-sine&quot;: &quot;cubic-bezier(0.390, 0.575, 0.565, 1.000)&quot;,
+      &quot;ease-out-expo&quot;: &quot;cubic-bezier(0.190, 1.000, 0.220, 1.000)&quot;,
+      &quot;ease-out-circ&quot;: &quot;cubic-bezier(0.075, 0.820, 0.165, 1.000)&quot;,
+      &quot;ease-out-back&quot;: &quot;cubic-bezier(0.175, 0.885, 0.320, 1.275)&quot;,
+      &quot;ease-in-out-quad&quot;: &quot;cubic-bezier(0.455, 0.030, 0.515, 0.955)&quot;,
+      &quot;ease-in-out-cubic&quot;: &quot;cubic-bezier(0.645, 0.045, 0.355, 1.000)&quot;,
+      &quot;ease-in-out-quart&quot;: &quot;cubic-bezier(0.770, 0.000, 0.175, 1.000)&quot;,
+      &quot;ease-in-out-quint&quot;: &quot;cubic-bezier(0.860, 0.000, 0.070, 1.000)&quot;,
+      &quot;ease-in-out-sine&quot;: &quot;cubic-bezier(0.445, 0.050, 0.550, 0.950)&quot;,
+      &quot;ease-in-out-expo&quot;: &quot;cubic-bezier(1.000, 0.000, 0.000, 1.000)&quot;,
+      &quot;ease-in-out-circ&quot;: &quot;cubic-bezier(0.785, 0.135, 0.150, 0.860)&quot;,
+      &quot;ease-in-out-back&quot;: &quot;cubic-bezier(0.680, -0.550, 0.265, 1.550)&quot;
+    },
+    &quot;logColor&quot;: &quot;green&quot;,
+    &quot;importPaths&quot;: [
+      &quot;/home/ubuntu/projects/clientkit-styleguide/example/node_modules/clientkit/styles&quot;
+    ],
+    &quot;mixinPath&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/node_modules/clientkit/styles/mixins/*.css&quot;,
+    &quot;globalMixins&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/node_modules/clientkit/styles/mixins&quot;,
+    &quot;assetPath&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/assets&quot;,
+    &quot;dist&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist&quot;,
+    &quot;minify&quot;: false,
+    &quot;mobileFirst&quot;: false,
+    &quot;breakpoints&quot;: {
+      &quot;desktop-wide&quot;: {
+        &quot;max-width&quot;: &quot;100vw&quot;,
+        &quot;min-width&quot;: &quot;1440px&quot;,
+        &quot;content&quot;: &quot;1400px&quot;,
+        &quot;col&quot;: &quot;xl&quot;,
+        &quot;default&quot;: true,
+        &quot;bleed&quot;: &quot;1600px&quot;
+      },
+      &quot;desktop&quot;: {
+        &quot;max-width&quot;: &quot;1439px&quot;,
+        &quot;min-width&quot;: &quot;1024px&quot;,
+        &quot;content&quot;: &quot;1000px&quot;,
+        &quot;col&quot;: &quot;lg&quot;
+      },
+      &quot;tablet&quot;: {
+        &quot;max-width&quot;: &quot;1023px&quot;,
+        &quot;min-width&quot;: &quot;768px&quot;,
+        &quot;content&quot;: &quot;750px&quot;,
+        &quot;col&quot;: &quot;md&quot;
+      },
+      &quot;mobile&quot;: {
+        &quot;max-width&quot;: &quot;767px&quot;,
+        &quot;min-width&quot;: &quot;320px&quot;,
+        &quot;content&quot;: &quot;100%&quot;,
+        &quot;col&quot;: &quot;sm&quot;,
+        &quot;default&quot;: false
+      }
+    },
+    &quot;fontParsingWhitelist&quot;: &quot;default.css&quot;,
+    &quot;autoprefixer&quot;: {
+      &quot;browsers&quot;: [
+        &quot;last 2 versions&quot;,
+        &quot;iOS 8&quot;,
+        &quot;iOS 9&quot;
+      ]
+    },
+    &quot;grid&quot;: {
+      &quot;columns&quot;: 12,
+      &quot;gutters&quot;: &quot;15px&quot;
+    },
+    &quot;spacing&quot;: {
+      &quot;default&quot;: {
+        &quot;none&quot;: 0,
+        &quot;xl&quot;: &quot;80px&quot;,
+        &quot;lg&quot;: &quot;50px&quot;,
+        &quot;md&quot;: &quot;30px&quot;,
+        &quot;sm&quot;: &quot;20px&quot;,
+        &quot;xs&quot;: &quot;10px&quot;
+      }
+    },
+    &quot;vars&quot;: {
+      &quot;font&quot;: {
+        &quot;primary&quot;: &quot;-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, sans-serif;&quot;,
+        &quot;secondary&quot;: &quot;-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, sans-serif;&quot;,
+        &quot;heading&quot;: &quot;-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, sans-serif;&quot;,
+        &quot;weight&quot;: {
+          &quot;body&quot;: &quot;normal&quot;,
+          &quot;light&quot;: 300,
+          &quot;regular&quot;: 400,
+          &quot;semibold&quot;: 600,
+          &quot;bold&quot;: 700,
+          &quot;xbold&quot;: 800
+        },
+        &quot;size&quot;: {
+          &quot;body&quot;: &quot;14px&quot;,
+          &quot;large&quot;: &quot;16px&quot;,
+          &quot;small&quot;: &quot;12px&quot;
+        },
+        &quot;mobile-size&quot;: {
+          &quot;body&quot;: &quot;14px&quot;,
+          &quot;large&quot;: &quot;16px&quot;,
+          &quot;small&quot;: &quot;12px&quot;
+        }
+      },
+      &quot;line-height&quot;: 1.1,
+      &quot;line-height-large&quot;: 1.5,
+      &quot;heading&quot;: {
+        &quot;line-height&quot;: 1.2,
+        &quot;font-weight&quot;: &quot;bold&quot;,
+        &quot;1-size&quot;: &quot;45px&quot;,
+        &quot;1-mobile-size&quot;: &quot;30px&quot;,
+        &quot;2-size&quot;: &quot;30px&quot;,
+        &quot;2-mobile-size&quot;: &quot;25px&quot;,
+        &quot;3-size&quot;: &quot;25px&quot;,
+        &quot;3-mobile-size&quot;: &quot;20px&quot;,
+        &quot;4-size&quot;: &quot;20px&quot;,
+        &quot;4-mobile-size&quot;: &quot;16px&quot;,
+        &quot;5-size&quot;: &quot;16px&quot;,
+        &quot;5-mobile-size&quot;: &quot;14px&quot;,
+        &quot;6-size&quot;: &quot;14px&quot;,
+        &quot;6-mobile-size&quot;: &quot;12px&quot;
+      },
+      &quot;stretch-spacing&quot;: &quot;2px&quot;,
+      &quot;table&quot;: {
+        &quot;cell-padding&quot;: &quot;10px&quot;,
+        &quot;sm-cell-padding&quot;: &quot;5px&quot;,
+        &quot;bg&quot;: &quot;transparent&quot;,
+        &quot;bg-accent&quot;: &quot;#f9f9f9&quot;,
+        &quot;bg-hover&quot;: &quot;#f5f5f5&quot;,
+        &quot;bg-active&quot;: &quot;#f5f5f5&quot;,
+        &quot;border-width&quot;: &quot;1px&quot;,
+        &quot;border-color&quot;: &quot;#eceeef&quot;
+      },
+      &quot;border&quot;: {
+        &quot;size&quot;: &quot;1px&quot;,
+        &quot;radius&quot;: {
+          &quot;default&quot;: &quot;3px&quot;,
+          &quot;lg&quot;: &quot;5px&quot;,
+          &quot;sm&quot;: &quot;2px&quot;
+        }
+      },
+      &quot;button&quot;: {
+        &quot;radius&quot;: {
+          &quot;default&quot;: &quot;3px&quot;,
+          &quot;lg&quot;: &quot;5px&quot;,
+          &quot;sm&quot;: &quot;2px&quot;
+        }
+      },
+      &quot;hr&quot;: {
+        &quot;max-width&quot;: &quot;3.5em&quot;,
+        &quot;height&quot;: &quot;3px&quot;,
+        &quot;color&quot;: &quot;#333&quot;
+      },
+      &quot;message&quot;: {
+        &quot;border-radius&quot;: &quot;2px&quot;
+      },
+      &quot;dropdown&quot;: {
+        &quot;bg&quot;: &quot;#fff&quot;
+      },
+      &quot;easing&quot;: {
+        &quot;out&quot;: &quot;cubic-bezier(0.35, 0.97, 0.57, 0.99)&quot;,
+        &quot;in-out&quot;: &quot;ease-in-out&quot;
+      }
+    },
+    &quot;files&quot;: {
+      &quot;out.css&quot;: &quot;common.css&quot;
+    }
+  },
+  &quot;eslint&quot;: {
+    &quot;crashOnError&quot;: false,
+    &quot;ignore&quot;: [
+      &quot;node_modules&quot;,
+      &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist&quot;
+    ],
+    &quot;files&quot;: [
+      &quot;/home/ubuntu/projects/clientkit-styleguide/example/assets/**/*.js&quot;
+    ]
+  },
+  &quot;hash&quot;: {
+    &quot;logColor&quot;: &quot;yellow&quot;,
+    &quot;dist&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist&quot;,
+    &quot;files&quot;: {
+      &quot;js&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist/**/*.js&quot;,
+      &quot;css&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist/**/*.css&quot;
+    },
+    &quot;mappingFile&quot;: &quot;assets.json&quot;
+  },
+  &quot;scripts&quot;: {
+    &quot;assetPath&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/assets&quot;,
+    &quot;dist&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist&quot;,
+    &quot;minify&quot;: false
+  },
+  &quot;styleguide&quot;: {
+    &quot;output&quot;: &quot;styleguide.html&quot;,
+    &quot;css&quot;: [
+      &quot;dist/out.css&quot;
+    ]
+  },
+  &quot;watcher&quot;: {
+    &quot;ignore&quot;: [
+      &quot;node_modules&quot;,
+      &quot;.git&quot;
+    ],
+    &quot;files&quot;: {
+      &quot;/home/ubuntu/projects/clientkit-styleguide/example/assets/**/*.css&quot;: {
+        &quot;task&quot;: &quot;stylesheets&quot;,
+        &quot;ignore&quot;: [
+          &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist&quot;
+        ]
+      },
+      &quot;/home/ubuntu/projects/clientkit-styleguide/example/assets/**/*.js&quot;: {
+        &quot;task&quot;: [
+          &quot;eslint&quot;,
+          &quot;scripts&quot;
+        ],
+        &quot;ignore&quot;: [
+          &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist&quot;
+        ]
+      },
+      &quot;/home/ubuntu/projects/clientkit-styleguide/example/clientkit/*.yaml&quot;: &quot;reloadConfig&quot;,
+      &quot;/home/ubuntu/projects/clientkit-styleguide/example/../template.njk&quot;: &quot;styleguide&quot;,
+      &quot;/home/ubuntu/projects/clientkit-styleguide/example/clientkit.yaml&quot;: &quot;reloadConfig&quot;
+    },
+    &quot;delay&quot;: 500
+  },
+  &quot;dist&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/dist&quot;,
+  &quot;assetPath&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/assets&quot;,
+  &quot;minify&quot;: false,
+  &quot;crashOnError&quot;: false,
+  &quot;serve&quot;: {
+    &quot;command&quot;: &quot;./node_modules/.bin/serve -p 8080&quot;,
+    &quot;continue&quot;: true
+  },
+  &quot;CKDIR&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/node_modules/clientkit&quot;,
+  &quot;CONFIGDIR&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example/clientkit&quot;,
+  &quot;env&quot;: &quot;dev&quot;,
+  &quot;CWD&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example&quot;,
+  &quot;ENV&quot;: {
+    &quot;npm_config_cache_lock_stale&quot;: &quot;60000&quot;,
+    &quot;npm_config_ham_it_up&quot;: &quot;&quot;,
+    &quot;TMUX&quot;: &quot;/tmp/user/1000/tmux-1000/default,13609,0&quot;,
+    &quot;npm_config_legacy_bundling&quot;: &quot;&quot;,
+    &quot;npm_config_sign_git_tag&quot;: &quot;&quot;,
+    &quot;MAIL&quot;: &quot;/var/mail/ubuntu&quot;,
+    &quot;SSH_CLIENT&quot;: &quot;47.144.180.18 54471 22&quot;,
+    &quot;USER&quot;: &quot;ubuntu&quot;,
+    &quot;npm_config_user_agent&quot;: &quot;npm/5.4.1 node/v6.10.3 linux x64&quot;,
+    &quot;npm_config_always_auth&quot;: &quot;&quot;,
+    &quot;npm_config_bin_links&quot;: &quot;true&quot;,
+    &quot;npm_config_key&quot;: &quot;&quot;,
+    &quot;npm_config_init_version&quot;: &quot;0.0.1&quot;,
+    &quot;npm_config_allow_same_version&quot;: &quot;&quot;,
+    &quot;npm_config_description&quot;: &quot;true&quot;,
+    &quot;npm_config_fetch_retries&quot;: &quot;2&quot;,
+    &quot;npm_config_heading&quot;: &quot;npm&quot;,
+    &quot;npm_config_if_present&quot;: &quot;&quot;,
+    &quot;npm_config_user&quot;: &quot;&quot;,
+    &quot;npm_node_execpath&quot;: &quot;/usr/bin/nodejs&quot;,
+    &quot;SHLVL&quot;: &quot;3&quot;,
+    &quot;TEMPDIR&quot;: &quot;/tmp/user/1000&quot;,
+    &quot;npm_config_prefer_online&quot;: &quot;&quot;,
+    &quot;HOME&quot;: &quot;/home/ubuntu&quot;,
+    &quot;npm_config_force&quot;: &quot;&quot;,
+    &quot;SSH_TTY&quot;: &quot;/dev/pts/0&quot;,
+    &quot;npm_config_only&quot;: &quot;&quot;,
+    &quot;__fish_sysconfdir&quot;: &quot;/etc/fish&quot;,
+    &quot;npm_package_dependencies_taskkit_shell&quot;: &quot;^2.0.0&quot;,
+    &quot;npm_config_init_license&quot;: &quot;MIT&quot;,
+    &quot;npm_config_cache_min&quot;: &quot;10&quot;,
+    &quot;npm_config_tag_version_prefix&quot;: &quot;&quot;,
+    &quot;npm_config_editor&quot;: &quot;vim&quot;,
+    &quot;npm_config_rollback&quot;: &quot;true&quot;,
+    &quot;npm_package_dependencies_clientkit&quot;: &quot;^2.3.1&quot;,
+    &quot;npm_config_cache_max&quot;: &quot;Infinity&quot;,
+    &quot;npm_config_timing&quot;: &quot;&quot;,
+    &quot;npm_config_userconfig&quot;: &quot;/home/ubuntu/.npmrc&quot;,
+    &quot;npm_config_init_author_name&quot;: &quot;Greg Allen&quot;,
+    &quot;npm_config_init_author_url&quot;: &quot;http://firstandthird.com/&quot;,
+    &quot;npm_config_engine_strict&quot;: &quot;&quot;,
+    &quot;npm_config_tmp&quot;: &quot;/tmp/user/1000&quot;,
+    &quot;npm_config_depth&quot;: &quot;Infinity&quot;,
+    &quot;npm_config_save_dev&quot;: &quot;&quot;,
+    &quot;npm_config_usage&quot;: &quot;&quot;,
+    &quot;npm_config_metrics_registry&quot;: &quot;https://registry.npmjs.org/&quot;,
+    &quot;npm_config_cafile&quot;: &quot;&quot;,
+    &quot;npm_config_package_lock&quot;: &quot;true&quot;,
+    &quot;npm_config_progress&quot;: &quot;true&quot;,
+    &quot;npm_config_https_proxy&quot;: &quot;&quot;,
+    &quot;npm_config_save_prod&quot;: &quot;&quot;,
+    &quot;OMF_PATH&quot;: &quot;/home/ubuntu/.local/share/omf&quot;,
+    &quot;TMPDIR&quot;: &quot;/tmp/user/1000&quot;,
+    &quot;npm_package_scripts_dev&quot;: &quot;clientkit dev&quot;,
+    &quot;npm_config_onload_script&quot;: &quot;&quot;,
+    &quot;npm_config_sso_type&quot;: &quot;oauth&quot;,
+    &quot;LOGNAME&quot;: &quot;ubuntu&quot;,
+    &quot;npm_config_rebuild_bundle&quot;: &quot;true&quot;,
+    &quot;npm_config_save_bundle&quot;: &quot;&quot;,
+    &quot;npm_config_shell&quot;: &quot;/usr/bin/fish&quot;,
+    &quot;EVENT_NOEPOLL&quot;: &quot;1&quot;,
+    &quot;TEMP&quot;: &quot;/tmp/user/1000&quot;,
+    &quot;npm_package_private&quot;: &quot;true&quot;,
+    &quot;npm_config_dry_run&quot;: &quot;&quot;,
+    &quot;npm_config_prefix&quot;: &quot;/usr&quot;,
+    &quot;NCURSES_NO_UTF8_ACS&quot;: &quot;1&quot;,
+    &quot;npm_config_scope&quot;: &quot;&quot;,
+    &quot;npm_config_browser&quot;: &quot;&quot;,
+    &quot;npm_config_cache_lock_wait&quot;: &quot;10000&quot;,
+    &quot;npm_config_ignore_prepublish&quot;: &quot;&quot;,
+    &quot;npm_config_registry&quot;: &quot;https://registry.npmjs.org/&quot;,
+    &quot;npm_config_save_optional&quot;: &quot;&quot;,
+    &quot;npm_config_searchopts&quot;: &quot;&quot;,
+    &quot;npm_config_versions&quot;: &quot;&quot;,
+    &quot;TERM&quot;: &quot;screen-256color&quot;,
+    &quot;XDG_SESSION_ID&quot;: &quot;1074&quot;,
+    &quot;npm_config_cache&quot;: &quot;/home/ubuntu/.npm&quot;,
+    &quot;npm_config_proxy&quot;: &quot;&quot;,
+    &quot;npm_config_send_metrics&quot;: &quot;&quot;,
+    &quot;npm_package_scripts_start&quot;: &quot;clientkit styleguide&quot;,
+    &quot;npm_config_global_style&quot;: &quot;&quot;,
+    &quot;npm_config_ignore_scripts&quot;: &quot;&quot;,
+    &quot;npm_config_version&quot;: &quot;&quot;,
+    &quot;npm_config_local_address&quot;: &quot;&quot;,
+    &quot;npm_config_viewer&quot;: &quot;man&quot;,
+    &quot;PATH&quot;: &quot;/usr/lib/node_modules/npm/bin/node-gyp-bin:/home/ubuntu/projects/clientkit-styleguide/example/node_modules/.bin:/home/ubuntu/projects/aws-extras:/home/ubuntu/bin:/home/ubuntu/projects/aws-extras:/home/ubuntu/bin:/home/ubuntu/projects/aws-extras:/home/ubuntu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&quot;,
+    &quot;PAPERTRAIL_API_TOKEN&quot;: &quot;gKvZb9IgY22zntZ6MoW&quot;,
+    &quot;npm_package_name&quot;: &quot;clientkit-styleguide-example&quot;,
+    &quot;npm_package_dependencies_serve&quot;: &quot;^6.0.6&quot;,
+    &quot;npm_config_prefer_offline&quot;: &quot;&quot;,
+    &quot;NODE&quot;: &quot;/usr/bin/nodejs&quot;,
+    &quot;XDG_RUNTIME_DIR&quot;: &quot;/run/user/1000&quot;,
+    &quot;npm_config_color&quot;: &quot;true&quot;,
+    &quot;npm_config_fetch_retry_mintimeout&quot;: &quot;10000&quot;,
+    &quot;npm_config_maxsockets&quot;: &quot;50&quot;,
+    &quot;npm_config_offline&quot;: &quot;&quot;,
+    &quot;npm_config_sso_poll_frequency&quot;: &quot;500&quot;,
+    &quot;LANG&quot;: &quot;en_US.UTF-8&quot;,
+    &quot;npm_config_umask&quot;: &quot;0002&quot;,
+    &quot;TMP&quot;: &quot;/tmp/user/1000&quot;,
+    &quot;npm_config_fetch_retry_maxtimeout&quot;: &quot;60000&quot;,
+    &quot;npm_config_loglevel&quot;: &quot;notice&quot;,
+    &quot;npm_config_logs_max&quot;: &quot;10&quot;,
+    &quot;npm_config_message&quot;: &quot;%s&quot;,
+    &quot;npm_lifecycle_script&quot;: &quot;clientkit dev&quot;,
+    &quot;CDPATH&quot;: &quot;.:/home/ubuntu:/home/ubuntu/projects:/home/ubuntu/clients:.:/home/ubuntu:/home/ubuntu/projects:/home/ubuntu/clients:.:/home/ubuntu:/home/ubuntu/projects:/home/ubuntu/clients&quot;,
+    &quot;npm_config_ca&quot;: &quot;&quot;,
+    &quot;npm_config_cert&quot;: &quot;&quot;,
+    &quot;npm_config_global&quot;: &quot;&quot;,
+    &quot;npm_config_link&quot;: &quot;&quot;,
+    &quot;SHELL&quot;: &quot;/usr/bin/fish&quot;,
+    &quot;npm_package_version&quot;: &quot;&quot;,
+    &quot;npm_config_access&quot;: &quot;&quot;,
+    &quot;npm_config_also&quot;: &quot;&quot;,
+    &quot;npm_config_save&quot;: &quot;true&quot;,
+    &quot;npm_config_unicode&quot;: &quot;true&quot;,
+    &quot;npm_lifecycle_event&quot;: &quot;dev&quot;,
+    &quot;__fish_help_dir&quot;: &quot;/usr/share/doc/fish&quot;,
+    &quot;npm_config_argv&quot;: &quot;{\&quot;remain\&quot;:[],\&quot;cooked\&quot;:[\&quot;run\&quot;,\&quot;dev\&quot;],\&quot;original\&quot;:[\&quot;run\&quot;,\&quot;dev\&quot;]}&quot;,
+    &quot;npm_config_long&quot;: &quot;&quot;,
+    &quot;npm_config_production&quot;: &quot;&quot;,
+    &quot;npm_config_searchlimit&quot;: &quot;20&quot;,
+    &quot;npm_config_unsafe_perm&quot;: &quot;true&quot;,
+    &quot;npm_config_auth_type&quot;: &quot;legacy&quot;,
+    &quot;npm_config_node_version&quot;: &quot;6.10.3&quot;,
+    &quot;npm_config_tag&quot;: &quot;latest&quot;,
+    &quot;npm_config_git_tag_version&quot;: &quot;true&quot;,
+    &quot;npm_config_commit_hooks&quot;: &quot;true&quot;,
+    &quot;npm_config_script_shell&quot;: &quot;&quot;,
+    &quot;npm_config_shrinkwrap&quot;: &quot;true&quot;,
+    &quot;npm_config_fetch_retry_factor&quot;: &quot;10&quot;,
+    &quot;npm_config_save_exact&quot;: &quot;&quot;,
+    &quot;npm_config_strict_ssl&quot;: &quot;true&quot;,
+    &quot;npm_config_dev&quot;: &quot;&quot;,
+    &quot;npm_config_globalconfig&quot;: &quot;/usr/etc/npmrc&quot;,
+    &quot;npm_config_init_module&quot;: &quot;/home/ubuntu/.npm-init.js&quot;,
+    &quot;npm_config_parseable&quot;: &quot;&quot;,
+    &quot;CLICOLOR&quot;: &quot;1&quot;,
+    &quot;FZF_DEFAULT_COMMAND&quot;: &quot;ag --hidden --ignore .git -g \&quot;\&quot;&quot;,
+    &quot;PWD&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example&quot;,
+    &quot;__fish_bin_dir&quot;: &quot;/usr/bin&quot;,
+    &quot;npm_config_globalignorefile&quot;: &quot;/usr/etc/npmignore&quot;,
+    &quot;npm_execpath&quot;: &quot;/usr/lib/node_modules/npm/bin/npm-cli.js&quot;,
+    &quot;OMF_CONFIG&quot;: &quot;/home/ubuntu/.config/omf&quot;,
+    &quot;SSH_CONNECTION&quot;: &quot;47.144.180.18 54471 172.31.26.187 22&quot;,
+    &quot;npm_config_cache_lock_retries&quot;: &quot;10&quot;,
+    &quot;npm_config_searchstaleness&quot;: &quot;900&quot;,
+    &quot;__fish_datadir&quot;: &quot;/usr/share/fish&quot;,
+    &quot;npm_config_save_prefix&quot;: &quot;^&quot;,
+    &quot;npm_config_scripts_prepend_node_path&quot;: &quot;warn-only&quot;,
+    &quot;npm_config_init_author_email&quot;: &quot;code@firstandthird.com&quot;,
+    &quot;npm_config_group&quot;: &quot;1000&quot;,
+    &quot;npm_config_searchexclude&quot;: &quot;&quot;,
+    &quot;TMUX_PANE&quot;: &quot;%7&quot;,
+    &quot;npm_config_git&quot;: &quot;git&quot;,
+    &quot;npm_config_optional&quot;: &quot;true&quot;,
+    &quot;EDITOR&quot;: &quot;vim&quot;,
+    &quot;npm_config_json&quot;: &quot;&quot;,
+    &quot;INIT_CWD&quot;: &quot;/home/ubuntu/projects/clientkit-styleguide/example&quot;
+  }
+}
+    </code></pre>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-yaml.min.js"></script>
