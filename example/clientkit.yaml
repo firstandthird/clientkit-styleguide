@@ -12,7 +12,6 @@ stylesheets:
   files:
     'out.css': 'common.css'
 styleguide:
-  uiPath: 'dist/'
   output: '{{dist}}/styleguide.html'
   mapping: '{{CWD}}/dist/assets.json'
   css:
