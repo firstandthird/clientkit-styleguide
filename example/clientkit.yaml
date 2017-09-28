@@ -13,7 +13,7 @@ stylesheets:
     'out.css': 'common.css'
 styleguide:
   uiPath: 'dist/'
-  output: 'styleguide.html'
+  output: '{{dist}}/styleguide.html'
   mapping: '{{CWD}}/dist/assets.json'
   css:
     - 'out.css'
