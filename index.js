@@ -66,7 +66,13 @@ class ClientkitStyleguideTask extends TaskKitTask {
           return done(null, []);
         }
 
-        const withMap = options.css.map((css) => path.join(options.uiPath, mapping[path.basename(css)]) || css);
+        const withMap = options.css.map((css) => {
+          const basefile = path.basename(css);
+          if (!mapping[basefile]) {
+            return css;
+          }
+          return path.join(options.uiPath, mapping[basefile]);
+        });
         done(null, withMap);
       },
       compile(buffer, css, done) {
