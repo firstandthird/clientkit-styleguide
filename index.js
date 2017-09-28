@@ -2,6 +2,7 @@ const TaskKitTask = require('taskkit-task');
 const nunjucks = require('nunjucks');
 const async = require('async');
 const fs = require('fs');
+const path = require('path');
 
 const objToString = (curVarName, curVarValue, curObject) => {
   if (typeof curVarValue === 'object') {
@@ -25,11 +26,13 @@ class ClientkitStyleguideTask extends TaskKitTask {
   get defaultOptions() {
     return {
       output: 'styleguide.html',
+      uiPath: '',
       configKey: 'stylesheets'
     };
   }
 
   execute(allDone) {
+    const { options, env, kit } = this;
     const output = this.options.output;
 
     const styleguide = this.kit.config[this.options.configKey];
@@ -46,18 +49,39 @@ class ClientkitStyleguideTask extends TaskKitTask {
 
     async.autoInject({
       buffer: (done) => fs.readFile(template, done),
-      compile: (buffer, done) => {
+      mapping(done) {
+        if (!options.mapping) {
+          return done(null, {});
+        }
+        if (!fs.existsSync(options.mapping)) {
+          return done(null, {});
+        }
+        if (options.mapping) {
+          return done(null, require(options.mapping));
+        }
+        done(null, {});
+      },
+      css(mapping, done) {
+        if (!options.css) {
+          return done(null, []);
+        }
+
+        const withMap = options.css.map((css) => path.join(options.uiPath, mapping[path.basename(css)]) || css);
+        done(null, withMap);
+      },
+      compile(buffer, css, done) {
         try {
           const text = buffer.toString('utf-8');
-          const renderer = nunjucks.compile(text, this.env);
+          const renderer = nunjucks.compile(text, env);
           return done(null, renderer.render({
-            options: this.options,
+            options,
+            css,
             variables,
             breakpoints,
             spacing,
             colors: styleguide.color,
             grid,
-            configString: JSON.stringify(this.kit.config, null, '  ')
+            configString: JSON.stringify(kit.config, null, '  ')
           }));
         } catch (e) {
           return done(e);

@@ -12,9 +12,11 @@ stylesheets:
   files:
     'out.css': 'common.css'
 styleguide:
+  uiPath: 'dist/'
   output: 'styleguide.html'
+  mapping: '{{CWD}}/dist/assets.json'
   css:
-    - 'dist/out.css'
+    - 'out.css'
 watcher:
   files:
     '{{CWD}}/../template.njk': 'styleguide'
