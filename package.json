@@ -22,8 +22,8 @@
   "homepage": "https://github.com/firstandthird/clientkit-styleguide#readme",
   "dependencies": {
     "async": "^2.5.0",
+    "contrast": "^1.0.1",
     "css-color-function": "^1.3.3",
-    "hex-contrast-color": "^1.0.1",
     "nunjucks": "^3.0.1",
     "taskkit-task": "^1.0.2"
   },

@@ -4,7 +4,7 @@ const async = require('async');
 const fs = require('fs');
 const path = require('path');
 const cssToColor = require('css-color-function');
-const hexContrastColor = require('hex-contrast-color');
+const contrast = require('contrast');
 
 const objToString = (curVarName, curVarValue, curObject) => {
   if (typeof curVarValue === 'object') {
@@ -88,7 +88,7 @@ class ClientkitStyleguideTask extends TaskKitTask {
 
             styleguide.color[colorName] = {
               backgroundColor: color,
-              textColor: hexContrastColor(textColor)
+              textColor: (contrast(textColor) === 'light') ? '#000' : '#fff'
             };
           });
 
