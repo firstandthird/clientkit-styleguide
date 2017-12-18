@@ -3,6 +3,8 @@ const nunjucks = require('nunjucks');
 const async = require('async');
 const fs = require('fs');
 const path = require('path');
+const cssToColor = require('css-color-function');
+const contrast = require('contrast');
 
 const objToString = (curVarName, curVarValue, curObject) => {
   if (typeof curVarValue === 'object') {
@@ -79,6 +81,17 @@ class ClientkitStyleguideTask extends TaskKitTask {
         try {
           const text = buffer.toString('utf-8');
           const renderer = nunjucks.compile(text, env);
+
+          Object.keys(styleguide.color).forEach(colorName => {
+            const color = styleguide.color[colorName];
+            const textColor = cssToColor.convert(color);
+
+            styleguide.color[colorName] = {
+              backgroundColor: color,
+              textColor: (contrast(textColor) === 'light') ? '#000' : '#fff'
+            };
+          });
+
           return done(null, renderer.render({
             options,
             css,
