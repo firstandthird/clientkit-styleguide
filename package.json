@@ -1,6 +1,6 @@
 {
   "name": "clientkit-styleguide",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Generate an html styleguide for clientkit config",
   "main": "index.js",
   "scripts": {
