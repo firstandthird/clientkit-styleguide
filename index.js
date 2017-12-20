@@ -81,15 +81,21 @@ class ClientkitStyleguideTask extends TaskKitTask {
         try {
           const text = buffer.toString('utf-8');
           const renderer = nunjucks.compile(text, env);
+          const colorsMap = {};
 
           Object.keys(styleguide.color).forEach(colorName => {
             const color = styleguide.color[colorName];
             const textColor = cssToColor.convert(color);
 
-            styleguide.color[colorName] = {
-              backgroundColor: color,
-              textColor: (contrast(textColor) === 'light') ? '#000' : '#fff'
-            };
+            if (!colorsMap[color]) {
+              colorsMap[color] = {
+                names: [colorName],
+                backgroundColor: color,
+                textColor: (contrast(textColor) === 'light') ? '#000' : '#fff'
+              };
+            } else {
+              colorsMap[color].names.push(colorName);
+            }
           });
 
           return done(null, renderer.render({
@@ -98,7 +104,7 @@ class ClientkitStyleguideTask extends TaskKitTask {
             variables,
             breakpoints,
             spacing,
-            colors: styleguide.color,
+            colors: colorsMap,
             grid,
             configString: JSON.stringify(kit.config, null, '  ')
           }));
