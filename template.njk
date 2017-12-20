@@ -9,10 +9,14 @@
   <div id="colors" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Colors</div>
     <div class="flex-row flex-row-wrap">
-    {% for name, color in colors %}
+    {% for hex, color in colors %}
       <div class="flex-3">
         <div style="width: 100%; background-color: {{color.backgroundColor}}; color: {{color.textColor}};" class="padding-yaxis-md margin-right-sm border-all text-color-light text-center margin-bottom-sm">
-          <strong>{{ name }}</strong> <br/>{{ color.backgroundColor }}
+          <strong>
+          {% for name in color.names %}
+            {{ name }} {% if not loop.last %},{% endif %}
+          {% endfor %}
+          </strong> <br/>{{ color.backgroundColor }}
         </div>
       </div>
     {% endfor %}
