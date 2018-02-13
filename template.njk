@@ -17,7 +17,10 @@
           <code>{% for name in color.names %}
             {{ name }}{% if not loop.last %},{% endif %}
 
-            {% if name.indexOf('background-') !== -1 %}
+            {% if name.indexOf('background-text') !== -1 %}
+              {% set className = name | replace('background-text-', '.bg-') %}
+              {% set classes = (classes.push(className), classes) %}
+            {% elif name.indexOf('background') !== -1 %}
               {% set className = name | replace('background-', '.bg-') %}
               {% set classes = (classes.push(className), classes) %}
             {% endif %}
