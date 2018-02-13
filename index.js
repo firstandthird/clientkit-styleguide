@@ -85,13 +85,13 @@ class ClientkitStyleguideTask extends TaskKitTask {
 
           Object.keys(styleguide.color).forEach(colorName => {
             const color = styleguide.color[colorName];
-            const textColor = cssToColor.convert(color);
+            const bgColor = cssToColor.convert(color);
 
             if (!colorsMap[color]) {
               colorsMap[color] = {
                 names: [colorName],
-                backgroundColor: color,
-                textColor: (contrast(textColor) === 'light') ? '#000' : '#fff'
+                backgroundColor: bgColor,
+                textColor: (contrast(bgColor) === 'light') ? '#000' : '#fff'
               };
             } else {
               colorsMap[color].names.push(colorName);
