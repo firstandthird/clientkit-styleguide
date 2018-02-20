@@ -11,12 +11,32 @@
     <div class="flex-row flex-row-wrap">
     {% for hex, color in colors %}
       <div class="flex-3">
-        <div style="width: 100%; background-color: {{color.backgroundColor}}; color: {{color.textColor}};" class="padding-yaxis-md margin-right-sm border-all text-color-light text-center margin-bottom-sm">
-          <strong>
-          {% for name in color.names %}
-            {{ name }} {% if not loop.last %},{% endif %}
-          {% endfor %}
-          </strong> <br/>{{ color.backgroundColor }}
+        <div style="width: 100%; position: relative; background-color: {{color.backgroundColor}}; color: {{color.textColor}};" class="padding-yaxis-md padding-xaxis-xs margin-right-sm border-all text-color-light text-center margin-bottom-sm">
+          <strong class="display-block">Variables:</strong>
+          {% set classes = [] %}
+          <code>{% for name in color.names %}
+            {{ name }}{% if not loop.last %},{% endif %}
+
+            {% if name.indexOf('background-text') !== -1 %}
+              {% set className = name | replace('background-text-', '.bg-') %}
+              {% set classes = (classes.push(className), classes) %}
+            {% elif name.indexOf('background') !== -1 %}
+              {% set className = name | replace('background-', '.bg-') %}
+              {% set classes = (classes.push(className), classes) %}
+            {% endif %}
+
+            {% if name.indexOf('text-color-') !== -1 %}
+              {% set className = name | replace('text-color-', '.text-') %}
+              {% set classes = (classes.push(className), classes) %}
+            {% endif %}
+          {% endfor %}</code>
+          {% if classes.length %}
+            <strong class="display-block margin-top-xs">Classes:</strong>
+            <code>{{ classes | join(",") }}</code>
+          {% endif %}
+          <span class="text-color-light" style="position: absolute; right: 0; top: 0; background: #000; padding: 2px 5px;">
+            <code>{{ color.backgroundColor }}</code>
+          </span>
         </div>
       </div>
     {% endfor %}
