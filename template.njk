@@ -8,10 +8,10 @@
 <div class="margin-top-md">
   <div id="colors" class="container">
     <div class="heading-2 border-bottom margin-bottom-md margin-top-lg">Colors</div>
-    <div class="flex-row flex-row-wrap">
+    <div class="flex-row flex-wrap">
     {% for hex, color in colors %}
       <div class="flex-3">
-        <div style="width: 100%; position: relative; background-color: {{color.backgroundColor}}; color: {{color.textColor}};" class="padding-yaxis-md padding-xaxis-xs margin-right-sm border-all text-color-light text-center margin-bottom-sm">
+        <div style="width: 100%; position: relative; background-color: {{color.backgroundColor}}; color: {{color.textColor}};" class="padding-yaxis-md padding-xaxis-xs margin-right-sm border-all text-center margin-bottom-sm">
           <strong class="display-block">Variables:</strong>
           {% set classes = [] %}
           <code>{% for name in color.names %}
@@ -26,7 +26,7 @@
             {% endif %}
 
             {% if name.indexOf('text-color-') !== -1 %}
-              {% set className = name | replace('text-color-', '.text-') %}
+              {% set className = name | replace('text-color-', '.color-') %}
               {% set classes = (classes.push(className), classes) %}
             {% endif %}
           {% endfor %}</code>
@@ -34,7 +34,7 @@
             <strong class="display-block margin-top-xs">Classes:</strong>
             <code>{{ classes | join(",") }}</code>
           {% endif %}
-          <span class="text-color-light" style="position: absolute; right: 0; top: 0; background: #000; padding: 2px 5px;">
+          <span class="color-white" style="position: absolute; right: 0; top: 0; background: #000; padding: 2px 5px;">
             <code>{{ color.backgroundColor }}</code>
           </span>
         </div>
@@ -59,6 +59,7 @@
     <button class="button">Primary Button</button>
     <button class="button-secondary">Secondary Button</button>
     <button class="button-outline">Outline Button</button>
+    <button class="button-link">Link button</button>
     <button class="button button-lg">Large Button</button>
     <button class="button button-sm">Small Button</button>
   </div>
