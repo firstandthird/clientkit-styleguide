@@ -6,8 +6,8 @@
     "dev": "clientkit dev"
   },
   "dependencies": {
-    "clientkit": "^3.0.0",
-    "serve": "^6.0.6",
+    "clientkit": "^4.11.0",
+    "serve": "^11.3.0",
     "taskkit-shell": "^2.0.0"
   }
 }
