@@ -10,7 +10,7 @@ tasks:
     - watcher
 stylesheets:
   files:
-    'out.css': './common.css'
+    'out.css': 'common.css'
 styleguide:
   output: '{{dist}}/styleguide.html'
   mapping: '{{CWD}}/dist/assets.json'

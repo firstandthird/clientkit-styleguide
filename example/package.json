@@ -6,7 +6,7 @@
     "dev": "clientkit dev"
   },
   "dependencies": {
-    "clientkit": "^4.11.0",
+    "clientkit": "^3.8.2",
     "serve": "^11.3.0",
     "taskkit-shell": "^2.0.0"
   }
